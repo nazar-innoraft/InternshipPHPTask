@@ -6,9 +6,9 @@
 // curl_close($ch);
 // $validationResult = json_decode($json, true);
 
-
+function emailVal($email_address){
 	$curl = curl_init();
-	$url = "https://mailcheck.p.rapidapi.com/?domain=" . $email_address . "";
+	$url = "https://mailcheck.p.rapidapi.com/?domain=" . $email_address;
 
 	curl_setopt_array($curl, [
 		CURLOPT_URL => $url,
@@ -20,7 +20,7 @@
 		CURLOPT_CUSTOMREQUEST => "GET",
 		CURLOPT_HTTPHEADER => [
 			"X-RapidAPI-Host: mailcheck.p.rapidapi.com",
-			"X-RapidAPI-Key: c912723cb3msh9e6d468fab896b7p1bd456jsn666e8e778e6d"
+			"X-RapidAPI-Key: dcf64b0e29msh76ee55eb510e56ep17619ejsne016606e1386"
 		],
 	]);
 
@@ -28,12 +28,6 @@
 	$err = curl_error($curl);
 
 	curl_close($curl);
-	// return $response;
-
-if ($err) {
-	echo "cURL Error #:" . $err;
-} else {
-	echo $response;
+	return $response;
 }
-
 ?>

@@ -1,12 +1,6 @@
 <?php
-
-if (isset($_POST["submit"])) {
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $fullname = $fname. " ". $lname;
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-
+function downloadPdf($fname, $lname, $fullname, $email, $phone, $imgdir){    
+    ob_start();
     require("fpdf/fpdf.php");
     $pdf = new FPDF();
     $pdf->AddPage();
@@ -22,10 +16,10 @@ if (isset($_POST["submit"])) {
     $pdf->Cell(0,10,$email,1,1);
     $pdf->Cell(50,10,"Phone",1,0);
     $pdf->Cell(0,10,$phone,1,1);
+    $pdf->Image($imgdir, 70,90,80,100);
 
     $filename = $fullname.'.pdf';
-    $pdf->output('I',$filename);
+    $pdf->output($filename, 'I');
+    ob_end_flush();
 }
-
-
 ?>
