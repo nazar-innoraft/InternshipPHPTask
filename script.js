@@ -4,9 +4,9 @@ let lname = document.querySelector("#lname");
 function full() {
     document.querySelector("#fullname").value = fname.value + " " + lname.value;
 }
-fname.addEventListener("focusout", () =>{
+fname.addEventListener("input", () =>{
     full();
 });
-lname.addEventListener("focusout", () =>{
+lname.addEventListener("input", () =>{
     full();
 });

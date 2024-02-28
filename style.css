@@ -19,3 +19,29 @@ textarea{
 table,td,th{
     border-collapse: collapse;
 }
+ul{
+
+    font-size: 30px;
+}
+.container{
+    max-width: 700px;
+    margin: 0 auto;
+}
+.navPage{
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    a{
+        text-decoration: none;
+        display: inline-block;
+        padding: 20px;
+        background: wheat;
+    }
+    a:hover{
+        background-color: blueviolet;
+        color: white;
+    }
+}
+p{
+    font-size: 30px;
+}

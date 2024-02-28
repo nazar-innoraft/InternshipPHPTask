@@ -5,7 +5,7 @@ session_start();
 if ($_SESSION["username"] == "Nazar" && $_SESSION["password"] == "1234") {
     echo "logged in";
 } else {
-    die("Not logged in");
+    die("Not logged in <a href=\"login.php\">Click to Login</a>");
 }
 ?>
 <!DOCTYPE html>
@@ -14,36 +14,9 @@ if ($_SESSION["username"] == "Nazar" && $_SESSION["password"] == "1234") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="./style.css" type="text/css">
     <title>Home Page</title>
-    <style>
-        ul{
 
-            font-size: 30px;
-        }
-        .container{
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .navPage{
-            margin: 0 auto;
-            font-size: 20px;
-            text-align: center;
-            a{
-                text-decoration: none;
-                display: inline-block;
-                padding: 20px;
-                background: wheat;
-            }
-            a:hover{
-                background-color: blueviolet;
-                color: white;
-            }
-        }
-        p{
-            font-size: 30px;
-        }
-    </style>
 </head>
 
 <body>

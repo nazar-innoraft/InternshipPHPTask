@@ -8,29 +8,30 @@
 </head>
 <body>
     <form id="form" action="action.php" method="post" enctype="multipart/form-data">
-        <!------------------------------------------  NAME  ---------------------------------------- -->
+        <!-- NAME  -->
         <label for="fname">First Name:</label> <br>
-        <input type="text" name="fname" id="fname" pattern="[A-za-z]{2-20}"> <br>
+        <input type="text" name="fname" id="fname" pattern="[A-Za-z]+"> <br>
         <label for="lname">Last Name:</label> <br>
-        <input type="text" name="lname" id="lname" pattern="[A-za-z]{2-20}"> <br>
+        <input type="text" name="lname" id="lname" pattern="[A-Za-z]+"> <br>
         <label for="fullname">Full Name:</label> <br>
         <input type="text" name="fullname" id="fullname" disabled> <br>
 
-        <!-- ---------------------------------- IMAGE Upload  ---------------------------------------- -->
+        <!-- IMAGE Upload -->
         <label for="photo">Upload photo: </label>
         <input type="file" name="image"> <br>
 
-        <!-- -------------------------------- ADD MARKS  ---------------------------------------- -->
+        <!--  ADD MARKS -->
         <textarea name="marks" placeholder="Enter marks in the format: English|80"></textarea><br>
-        <!------------------------------------------  PHONE  ---------------------------------------- -->
+        <!-- PHONE -->
         <label for="phone">Phone (Please add +91 before):</label> <br>
-        <input type="tel" name="phone" max="13" id="phone" pattern="^\+91[6-9]{1}[2-9]{1}[0-9]{8}"> <br>
-        <!------------------------------------------  E-MAIL  ---------------------------------------- -->
+        <input type="tel" name="phone"  id="phone" pattern="^\+91[6-9]{1}[2-9]{1}[0-9]{8}"> <br>
+        <!-- E-MAIL -->
         <label for="email">E-mail:</label> <br>
         <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$"> <br>
         
         <br>
-        <input type="submit" name="submit"> <br> <br>        
+        <input type="submit" name="submit"> <br> <br> 
+
     </form>
     <!-- JAVASCRIPT -->
     <script src="script.js"></script>

@@ -1,9 +1,8 @@
 <?php
-// CONNECT TO SERVER ---------------------------------------
+// CONNECT TO SERVER
 // require_once("connection.php");
-
 if (isset($_POST["submit"])) {
-    // ----------------------------------------  NAME AND CONTACTS  ----------------------------------------
+    // NAME AND CONTACTS
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $fullname = $fname. " ". $lname;
@@ -11,13 +10,11 @@ if (isset($_POST["submit"])) {
     $phone = $_POST["phone"];
     echo "<h2>Hi, ", $fname,  " ", $lname, "</h2><br>Your email is ", $email, "<br>Your Phone Number is ", $phone, "<br>";
 
-    // ----------------------------------------  EMAIL VALIDATION  ----------------------------------------
+    // EMAIL VALIDATION
     require 'emailvalidation.php';
     $res = emailVal($email);
-    // $res = emailVal($email) ? "Vaild E-mail":  "Not Vaild E-mail"; 
-    echo var_dump($res), "<br>";
 
-    // ----------------------------------------  IMAGE Upload  ----------------------------------------
+    // IMAGE Upload
     $uploadDir = "uploads/";
     $uploadFile = $uploadDir . basename($_FILES["image"]["name"]);
     //  echo "\n". $uploadFile. "\n";
@@ -36,7 +33,7 @@ if (isset($_POST["submit"])) {
         echo "<br>File is not an image.";
     }
 
-    // ----------------------------------------  ADD MARKS  ----------------------------------------
+    // ADD MARKS
     if (isset($_POST['marks'])) {
         $marks = explode("\n", $_POST['marks']);
         echo "<h2>Subject Marks</h2>";
@@ -48,7 +45,5 @@ if (isset($_POST["submit"])) {
         }
         echo "</table>";
     }
-    require 'pdf.php';
-    // downloadPdf($fname, $lname, $fullname, $email, $phone, $uploadFile);    
 }
 ?>

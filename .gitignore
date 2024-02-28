@@ -1,2 +1,4 @@
 /fpdf/
-/uploads/
+uploads
+/vendor/
+apiInfo.php
