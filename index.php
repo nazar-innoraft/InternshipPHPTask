@@ -1,11 +1,10 @@
 <?php
 session_start();
-
-// CHECK FOR LOGIN
-if ($_SESSION["username"] == "Nazar" && $_SESSION["password"] == "1234") {
-    echo "logged in";
+// Check for Login.
+if ($_SESSION['userName'] == 'Nazar' && $_SESSION['password'] == '1234') {
+    echo 'logged in';
 } else {
-    die("Not logged in <a href=\"login.php\">Click to Login</a>");
+    die('Not logged in <a href="login.php">Click to Login</a>');
 }
 ?>
 <!DOCTYPE html>
@@ -21,19 +20,22 @@ if ($_SESSION["username"] == "Nazar" && $_SESSION["password"] == "1234") {
 
 <body>
     <a href="logout.php">Click to Logout</a>
-    <div class="container"> 
+    <div class="container">
     <h1>Do the PHP Tasks</h1>
     <?php
-    // CONTENT FOR SHOW DIFFERENT PAGES
+    // Content show as per page number.
     require_once 'details.php';
-    if (isset($_GET["q"])) {
-        $page = $_GET["q"];
+    if (isset($_GET['q'])) {
+        $page = $_GET['q'];
         echo content($page);
     } else {
-        echo content(1);
+        header('Location: index.php?q=1');
+        exit();
+        // echo content(1);
     }
     ?>
     </div>
+    <!-- Buttons for page no. -->
     <div class="navPage">
         <a href="?q=1">1</a>
         <a href="?q=2">2</a>
