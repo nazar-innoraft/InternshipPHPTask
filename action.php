@@ -1,49 +1,46 @@
 <?php
-// CONNECT TO SERVER
-// require_once("connection.php");
-if (isset($_POST["submit"])) {
-    // NAME AND CONTACTS
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $fullname = $fname. " ". $lname;
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    echo "<h2>Hi, ", $fname,  " ", $lname, "</h2><br>Your email is ", $email, "<br>Your Phone Number is ", $phone, "<br>";
 
-    // EMAIL VALIDATION
-    require 'emailvalidation.php';
-    $res = emailVal($email);
+require 'pdf.php';
 
-    // IMAGE Upload
-    $uploadDir = "uploads/";
-    $uploadFile = $uploadDir . basename($_FILES["image"]["name"]);
-    //  echo "\n". $uploadFile. "\n";
-    $check = false;
-    if($_FILES["image"]["tmp_name"]){
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
-    }
-    // echo $check;
-    if ($check != false) {
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $uploadFile)) {
-            echo "Image uploaded successfully.";
-        } else {
-            echo "<br>Failed to upload image.";
-        }
-    } else {
-        echo "<br>File is not an image.";
-    }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $fName = $_POST['fname'];
+    $lName = $_POST['lname'];
+    $fullName = $fName . ' ' . $lName;
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
 
-    // ADD MARKS
-    if (isset($_POST['marks'])) {
-        $marks = explode("\n", $_POST['marks']);
-        echo "<h2>Subject Marks</h2>";
-        echo "<table border=1>";
-        echo "<tr><th>Subject</th><th>Marks</th></tr>";
-        foreach ($marks as $mark) {
-            list($subject, $score) = explode("|", $mark);
-            echo "<tr><td>$subject</td><td>$score</td></tr>";
-        }
-        echo "</table>";
-    }
+
+    // Email vallidation.
+    // require 'emailvalidation.php';
+    // $res = emailVal($email);
+
+    // Image Upload.
+    $uploadDir = 'uploads/';
+    $uploadFile = $uploadDir . basename($_FILES['image']['name']);
+
+    move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+    $image = $uploadFile;
+
+    getPdf($fName, $lName, $fullName, $image, $email, $phone);
 }
 ?>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Hello, <?= $fullName ?></h2>
+        <p>Your email is <?= $email ?>
+        <p>
+        <p>Your phone number is <?= $phone ?>
+        <p>
+    </div>
+</body>
+
+</html>
+
