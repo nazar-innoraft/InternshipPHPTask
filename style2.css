@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.container {
+  max-width: 500px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: wheat;
+  h2{
+    font-size: 25px;
+    color: blueviolet;
+    margin: 10px 0;
+    text-align: center;
+  }
+  input{
+    padding: 5px;
+    width: 100%;
+  }
+}
