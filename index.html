@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="form" action="action.php" method="post" enctype="multipart/form-data">
-        <!-- Name  -->
-        <label for="fname">First Name:</label> <br>
-        <input type="text" name="firstName" id="firstName" pattern="[A-Za-z]+"> <br>
-        <label for="lname">Last Name:</label> <br>
-        <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]+"> <br>
-        <label for="fullname">Full Name:</label> <br>
-        <input type="text" name="fullName" id="fullName" disabled> <br>
+  <form id="form" action="action.php" method="post" enctype="multipart/form-data">
+    <!-- Name  -->
+    <label for="fname">First Name:</label> <br>
+    <input type="text" name="firstName" id="firstName" pattern="[A-Za-z]+"> <br>
+    <label for="lname">Last Name:</label> <br>
+    <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]+"> <br>
+    <label for="fullname">Full Name:</label> <br>
+    <input type="text" name="fullName" id="fullName" disabled> <br>
 
-        <!-- IMAGE Upload -->
-        <label for="photo">Upload photo: </label>
-        <input type="file" name="image"> <br>
+    <!-- Upload image. -->
+    <label for="photo">Upload photo: </label>
+    <input type="file" name="image"> <br>
 
-        <!--  Add marks. -->
-        <textarea name="marks" placeholder="Enter marks in the format: English|80"></textarea><br>
-        <!-- Phone. -->
-        <label for="phone">Phone (Please add +91 before):</label> <br>
-        <input type="tel" name="phone"  id="phone" pattern="^\+91[6-9]{1}[2-9]{1}[0-9]{8}"> <br>
-        <!-- E-mail. -->
-        <label for="email">E-mail:</label> <br>
-        <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$"> <br>
+    <!--  Add marks. -->
+    <textarea name="marks" placeholder="Enter marks in the format: English|80"></textarea><br>
+    <!-- Phone. -->
+    <label for="phone">Phone (Please add +91 before):</label> <br>
+    <input type="tel" name="phone"  id="phone" pattern="^\+91[6-9]{1}[2-9]{1}[0-9]{8}"> <br>
+    <!-- E-mail. -->
+    <label for="email">E-mail:</label> <br>
+    <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$"> <br>
 
-        <br>
-        <input type="submit" name="submit"> <br> <br>
+    <br>
+    <input type="submit" name="submit"> <br> <br>
 
-    </form>
-    <!-- Javascript linked. -->
-    <script src="script.js"></script>
+  </form>
+  <!-- Javascript linked. -->
+  <script src="script.js"></script>
 </body>
 </html>

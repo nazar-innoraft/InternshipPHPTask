@@ -1,9 +1,7 @@
 <?php
-session_start();
-// Unsetting the session value.
-session_unset();
-// Destroying the session.
-session_destroy();
+
+require 'manageSession.php';
+endSession();
 ?>
 <!DOCTYPE html>
 <html lang="en">

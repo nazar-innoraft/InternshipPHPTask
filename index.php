@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'credential.php';
 
 // Check for Login if not logged in redirect to login page.

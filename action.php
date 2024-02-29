@@ -4,13 +4,10 @@ require 'pdf.php';
 require 'connection.php';
 
 // Getting input from submitted form.
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $firstName = $_POST['firstName'];
-  $lastName = $_POST['lastName'];
-  $fullName = $firstName . ' ' . $lastName;
+if (isset($_POST['submit'])) {
+  $fullName = $_POST['firstName'] . ' ' . $_POST['lastName'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
-  $marks = $_POST['marks'];
 
   // Image Upload.
   $uploadDir = 'uploads/';
@@ -42,6 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   * @param string $marks
   *   User's subject marks.
   */
-  getPdf($firstName, $lastName, $fullName, $image, $email, $phone, $marks);
+  getPdf($_POST['firstName'], $_POST['lastName'], $fullName, $image, $email, $phone, $_POST['marks']);
 }
 ?>

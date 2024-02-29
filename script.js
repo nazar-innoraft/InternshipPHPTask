@@ -1,17 +1,17 @@
-let fname = document.querySelector("#firstName");
-let lname = document.querySelector("#lastName");
+let firstName = document.querySelector("#firstName");
+let lastName = document.querySelector("#lastName");
 
 /**
  * function used to concat first name and last name and display it on input.
  *
  * no parameter here.
  */
-function full() {
-  document.querySelector("#fullname").value = fname.value + " " + lname.value;
+function setFullName() {
+  document.querySelector("#fullname").value = firstName.value + " " + lastName.value;
 }
-fname.addEventListener("input", () => {
-  full();
+firstName.addEventListener("input", () => {
+  setFullName();
 });
-lname.addEventListener("input", () => {
-  full();
+lastName.addEventListener("input", () => {
+  setFullName();
 });

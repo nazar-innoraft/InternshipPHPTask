@@ -1,5 +1,10 @@
 <?php
-session_start();
+
+if (session_status() == PHP_SESSION_ACTIVE) {
+  echo "session exit";
+} else {
+  echo "session not exit";
+}
 
 // If already login it will redirect to the page 4 and no need to login again.
 if(isset($_SESSION['userName'])){
@@ -25,9 +30,10 @@ if(isset($_SESSION['userName'])){
       <input type="submit" value="Submit">
       <?php
       // If not logged in user can LOGIN using credentials and on successful login it will redirect to page 4.
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        require 'credential.php';
+      require 'credential.php';
+      if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         if ($_POST['userName'] == $username && $_POST['password'] == $password) {
+          session_start();
           $_SESSION['userName'] = $username;
           $_SESSION['password'] = $password;
           header('Location: index.php?q=4');
