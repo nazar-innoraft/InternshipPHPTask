@@ -8,32 +8,32 @@
 </head>
 <body>
     <form id="form" action="action.php" method="post" enctype="multipart/form-data">
-        <!-- NAME  -->
+        <!-- Name  -->
         <label for="fname">First Name:</label> <br>
-        <input type="text" name="fname" id="fname" pattern="[A-Za-z]+"> <br>
+        <input type="text" name="firstName" id="firstName" pattern="[A-Za-z]+"> <br>
         <label for="lname">Last Name:</label> <br>
-        <input type="text" name="lname" id="lname" pattern="[A-Za-z]+"> <br>
+        <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]+"> <br>
         <label for="fullname">Full Name:</label> <br>
-        <input type="text" name="fullname" id="fullname" disabled> <br>
+        <input type="text" name="fullName" id="fullName" disabled> <br>
 
         <!-- IMAGE Upload -->
         <label for="photo">Upload photo: </label>
         <input type="file" name="image"> <br>
 
-        <!--  ADD MARKS -->
+        <!--  Add marks. -->
         <textarea name="marks" placeholder="Enter marks in the format: English|80"></textarea><br>
-        <!-- PHONE -->
+        <!-- Phone. -->
         <label for="phone">Phone (Please add +91 before):</label> <br>
         <input type="tel" name="phone"  id="phone" pattern="^\+91[6-9]{1}[2-9]{1}[0-9]{8}"> <br>
-        <!-- E-MAIL -->
+        <!-- E-mail. -->
         <label for="email">E-mail:</label> <br>
         <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$"> <br>
-        
+
         <br>
-        <input type="submit" name="submit"> <br> <br> 
+        <input type="submit" name="submit"> <br> <br>
 
     </form>
-    <!-- JAVASCRIPT -->
+    <!-- Javascript linked. -->
     <script src="script.js"></script>
 </body>
 </html>

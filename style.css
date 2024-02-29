@@ -1,47 +1,52 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#form{
-    background: rgb(158, 223, 78);
-    width:30%;
-    margin: 0 auto;
-    padding: 10px 20px;
-    input{
-        width: 100%;
-    }
-}
-textarea{
-    width: 100%;
-    height: 100px;
-}
-table,td,th{
-    border-collapse: collapse;
-}
-ul{
 
-    font-size: 30px;
+/* This styling for input form. */
+#form {
+  background: rgb(158, 223, 78);
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  input {
+    width: 100%;
+  }
 }
-.container{
-    max-width: 700px;
-    margin: 0 auto;
+textarea {
+  width: 100%;
+  height: 100px;
 }
-.navPage{
-    margin: 0 auto;
-    font-size: 20px;
-    text-align: center;
-    a{
-        text-decoration: none;
-        display: inline-block;
-        padding: 20px;
-        background: wheat;
-    }
-    a:hover{
-        background-color: blueviolet;
-        color: white;
-    }
+table,
+td,
+th {
+  border-collapse: collapse;
 }
-p{
-    font-size: 30px;
+ul {
+  font-size: 30px;
+}
+
+/* Styling for index.php page. */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.navPage {
+  margin: 0 auto;
+  font-size: 20px;
+  text-align: center;
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px;
+    background: wheat;
+  }
+  a:hover {
+    background-color: blueviolet;
+    color: white;
+  }
+}
+p {
+  font-size: 30px;
 }

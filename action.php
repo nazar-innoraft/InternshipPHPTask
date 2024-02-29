@@ -1,46 +1,47 @@
 <?php
 
 require 'pdf.php';
+require 'connection.php';
 
+// Getting input from submitted form.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $fName = $_POST['fname'];
-    $lName = $_POST['lname'];
-    $fullName = $fName . ' ' . $lName;
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
+  $firstName = $_POST['firstName'];
+  $lastName = $_POST['lastName'];
+  $fullName = $firstName . ' ' . $lastName;
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $marks = $_POST['marks'];
+
+  // Image Upload.
+  $uploadDir = 'uploads/';
+  $uploadFile = $uploadDir . basename($_FILES['image']['name']);
+  move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+  $image = $uploadFile;
+
+  // Prepare SQL statement to insert data
+  $sql = "INSERT INTO users (fullname, email, phone) VALUES ('$fullName', '$email', '$phone')";
+  $conn->query($sql);
+  // Close database connection
+  $conn->close();
 
 
-    // Email vallidation.
-    // require 'emailvalidation.php';
-    // $res = emailVal($email);
-
-    // Image Upload.
-    $uploadDir = 'uploads/';
-    $uploadFile = $uploadDir . basename($_FILES['image']['name']);
-
-    move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
-    $image = $uploadFile;
-
-    getPdf($fName, $lName, $fullName, $image, $email, $phone);
+  /* * Generates pdf using user input data.
+  *
+  * @param string $firstName
+  *   User's first name.
+  * @param string $lastName
+  *   User's last name.
+  * @param string $fullName
+  *   User's full name.
+  * @param string $email
+  *   User's email address.
+  * @param string $phone
+  *   User's contact number.
+  * @param mixed $image
+  *   User's input image.
+  * @param string $marks
+  *   User's subject marks.
+  */
+  getPdf($firstName, $lastName, $fullName, $image, $email, $phone, $marks);
 }
 ?>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="container">
-        <h2>Hello, <?= $fullName ?></h2>
-        <p>Your email is <?= $email ?>
-        <p>
-        <p>Your phone number is <?= $phone ?>
-        <p>
-    </div>
-</body>
-
-</html>
-
