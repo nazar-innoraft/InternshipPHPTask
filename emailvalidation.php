@@ -24,7 +24,7 @@ function email_val(string $email_address): bool {
 	curl_close($ch);
 
 	// Print the data out onto the page.
-	if($data){
+	if ($data) {
 		return true;
 	} else {
 		return false;
