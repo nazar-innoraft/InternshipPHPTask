@@ -2,8 +2,11 @@
 /**
  * Generates questions using user input data.
  *
- * @param int $pgno
- *   Page no of the target page and based on page no we return the content.
+ * @param  mixed $pgno
+ *   Page number which is asked by user.
+ *
+ * @return string
+ *   Returning question details as per page number.
  */
 function content(int $pgno): string {
 $cont = "";

@@ -1,8 +1,8 @@
 <?php
-// Session Credential
+// Session Credential.
 $username = 'name';
 $password = 'pass';
-// Database Credential
+// Database Credential.
 $db_host = "localhost";
 $db_username = "name";
 $db_password = "pass";

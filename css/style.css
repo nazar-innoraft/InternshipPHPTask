@@ -26,6 +26,10 @@ th {
 ul {
   font-size: 30px;
 }
+#submit{
+  margin: 10px 0;
+  font-size: 20px;
+}
 
 /* Styling for index.php page. */
 .container {

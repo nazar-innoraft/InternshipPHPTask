@@ -21,8 +21,10 @@ require('vendor/autoload.php');
  *   User's contact number.
  * @param string $marks
  *   User's subject marks.
+ *
+ * @return void
  */
-function getPdf(string $firstName, string $lastName, string $fullName, mixed $image, string $email, string $phone, string $markString) {
+function getPdf(string $firstName, string $lastName, string $fullName, mixed $image, string $email, string $phone, string $markString): void {
   $pdf = new Fpdf();
   $pdf->AddPage();
   $pdf->SetFont("Arial", "", 16);
@@ -39,7 +41,6 @@ function getPdf(string $firstName, string $lastName, string $fullName, mixed $im
   $pdf->Cell(50, 10, "Phone", 1, 0);
   $pdf->Cell(0, 10, $phone, 1, 1);
   $pdf->Cell(0, 10, "", 0, 1);
-
   // Prints subject name along with it's marks.
   $pdf->Cell(0, 10, "Academic Details", 0, 1, 'C');
   $pdf->Cell(100, 10, "Subject", 1, 0);
@@ -50,7 +51,6 @@ function getPdf(string $firstName, string $lastName, string $fullName, mixed $im
     $pdf->Cell(100, 10, $subject, 1, 0);
     $pdf->Cell(0, 10, $score, 1, 1);
   }
-
   // Adding an image.
   $pdf->Image($image, 70, 190, 80, 100);
   $dir = 'docs/';

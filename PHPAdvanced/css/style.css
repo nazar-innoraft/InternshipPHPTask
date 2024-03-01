@@ -1,0 +1,31 @@
+*{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  background: rgb(246, 237, 118);
+  color: rgb(44, 140, 89);
+}
+label, input, textarea{
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+}
+#submit{
+  background: white;
+  color: rgb(44, 140, 89);
+  margin: 10px 0;
+  font-weight: 600;
+  font-size: 25px;
+}
+#submit:hover{
+  background: rgb(44, 140, 89);
+  color: white;
+}

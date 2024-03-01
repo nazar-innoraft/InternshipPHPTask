@@ -22,3 +22,10 @@
     width: 100%;
   }
 }
+#wrong{
+  font-weight: 600;
+  color: red;
+}
+#submit{
+  margin: 15px 0;
+}

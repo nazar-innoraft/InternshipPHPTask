@@ -2,9 +2,7 @@ let firstName = document.querySelector("#firstName");
 let lastName = document.querySelector("#lastName");
 
 /**
- * function used to concat first name and last name and display it on input.
- *
- * no parameter here.
+ * Function used to concat first name and last name and display it on input.
  */
 function setFullName() {
   document.querySelector("#fullname").value = firstName.value + " " + lastName.value;
