@@ -1,5 +1,8 @@
 <?php
 require 'credential.php';
+require_once 'details.php';
+
+session_start();
 
 // Check for Login if not logged in redirect to login page.
 if ($_SESSION['userName'] == $username && $_SESSION['password'] == $password) {
@@ -7,7 +10,6 @@ if ($_SESSION['userName'] == $username && $_SESSION['password'] == $password) {
 } else {
   die('Not logged in <a href="login.php">Click to Login</a>');
 }
-require_once 'details.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +17,11 @@ require_once 'details.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
   <title>Home Page</title>
 </head>
 
 <body>
-  <a href="logout.php">Click to Logout</a>
   <div class="container">
     <h1>Do the PHP Tasks</h1>
     <?php
@@ -42,6 +43,11 @@ require_once 'details.php';
     <a href="?q=4">4</a>
     <a href="?q=5">5</a>
     <a href="?q=6">6</a>
+  </div>
+    <!-- Button to log out. -->
+    <a id="logout" href="logout.php">Click to Logout</a>
+  <div>
+
   </div>
 </body>
 

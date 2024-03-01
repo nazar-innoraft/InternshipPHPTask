@@ -1,11 +1,5 @@
 <?php
-
-if (session_status() == PHP_SESSION_ACTIVE) {
-  echo "session exit";
-} else {
-  echo "session not exit";
-}
-
+session_start();
 // If already login it will redirect to the page 4 and no need to login again.
 if(isset($_SESSION['userName'])){
   header('Location: index.php?q=4');
@@ -17,7 +11,7 @@ if(isset($_SESSION['userName'])){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style2.css" type="text/css">
+  <link rel="stylesheet" href="css/style2.css" type="text/css">
 </head>
 <body>
   <div class="container">
@@ -32,8 +26,8 @@ if(isset($_SESSION['userName'])){
       // If not logged in user can LOGIN using credentials and on successful login it will redirect to page 4.
       require 'credential.php';
       if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+        // If username and password matchs then login else give wrong input.
         if ($_POST['userName'] == $username && $_POST['password'] == $password) {
-          session_start();
           $_SESSION['userName'] = $username;
           $_SESSION['password'] = $password;
           header('Location: index.php?q=4');

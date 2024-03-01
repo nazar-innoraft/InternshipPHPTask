@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <form id="form" action="action.php" method="post" enctype="multipart/form-data">
     <!-- Name  -->
-    <label for="fname">First Name:</label> <br>
+    <label for="firstName">First Name:</label> <br>
     <input type="text" name="firstName" id="firstName" pattern="[A-Za-z]+"> <br>
-    <label for="lname">Last Name:</label> <br>
+    <label for="lastName">Last Name:</label> <br>
     <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]+"> <br>
     <label for="fullname">Full Name:</label> <br>
     <input type="text" name="fullName" id="fullName" disabled> <br>
 
     <!-- Upload image. -->
-    <label for="photo">Upload photo: </label>
+    <label for="image">Upload photo: </label>
     <input type="file" name="image"> <br>
 
     <!--  Add marks. -->

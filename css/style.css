@@ -36,16 +36,22 @@ ul {
   margin: 0 auto;
   font-size: 20px;
   text-align: center;
-  a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 20px;
-    background: wheat;
-  }
-  a:hover {
-    background-color: blueviolet;
-    color: white;
-  }
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 20px;
+  background: wheat;
+}
+a:hover {
+  background-color: blueviolet;
+  color: white;
+}
+#logout{
+  display: block;
+  text-align: center;
+  width: 200px;
+  margin: 10px auto;
 }
 p {
   font-size: 30px;
