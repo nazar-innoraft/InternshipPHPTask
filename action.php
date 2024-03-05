@@ -5,9 +5,7 @@ require 'connection.php';
 
 // Getting input from submitted form.
 if (isset($_POST['submit'])) {
-  $fullName = $_POST['firstName'] . ' ' . $_POST['lastName'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
+  $full_name = $_POST['firstName'] . ' ' . $_POST['lastName'];
 
   // Upload image.
   $uploadDir = 'uploads/';
@@ -16,13 +14,13 @@ if (isset($_POST['submit'])) {
   $image = $uploadFile;
 
   // Prepare SQL statement to insert data.
-  $sql = "INSERT INTO users (fullname, email, phone) VALUES ('$fullName', '$email', '$phone')";
+  $sql = "INSERT INTO users (fullname, email, phone) VALUES ('$full_name', '{$_POST['email']}', '{$_POST['phone']}')";
   $conn->query($sql);
   // Close database connection.
   $conn->close();
 
 
   // Calling function to print PDF.
-  getPdf($_POST['firstName'], $_POST['lastName'], $fullName, $image, $email, $phone, $_POST['marks']);
+  getPdf($_POST['firstName'], $_POST['lastName'], $full_name, $image, $email, $phone, $_POST['marks']);
 }
 ?>

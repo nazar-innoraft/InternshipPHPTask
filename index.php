@@ -1,15 +1,10 @@
 <?php
-require 'credential.php';
-require_once 'details.php';
-
 session_start();
-
-// Check for Login if not logged in redirect to login page.
-if ($_SESSION['userName'] == $username && $_SESSION['password'] == $password) {
-  echo 'logged in';
-} else {
-  die('Not logged in <a href="login.php">Click to Login</a>');
+if (!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) {
+  include 'access_denied.html';
+  exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,12 +18,17 @@ if ($_SESSION['userName'] == $username && $_SESSION['password'] == $password) {
 
 <body>
   <div class="container">
-    <h1>Do the PHP Tasks</h1>
     <?php
     // Content show as per page number.
-    if (isset($_GET['q'])) {
-      $page = $_GET['q'];
-      echo content($page);
+    parse_str($_SERVER['QUERY_STRING'], $parameters);
+    if (isset($parameters['q'])) {
+      echo $parameters['q'];
+      if ($parameters['q'] > 0 && $parameters['q'] <= 7) {
+        include "pages/page{$parameters['q']}.php";
+      } else {
+        echo 'Wrong Page';
+        exit();
+      }
     } else {
       header('Location: index.php?q=1');
       exit();
