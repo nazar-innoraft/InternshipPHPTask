@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <form id="form" action="action.php" method="post" enctype="multipart/form-data">
+    <!-- Name  -->
+    <label for="firstName">First Name:</label>
+    <input type="text" name="firstName" id="firstName" pattern="[A-Za-z]+">
+    <label for="lastName">Last Name:</label>
+    <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]+">
+    <label for="fullname">Full Name:</label>
+    <input type="text" name="fullName" id="fullName" disabled>
+
+    <!-- Upload image. -->
+    <label for="image">Upload photo: </label>
+    <input type="file" name="image">
+
+    <!--  Add marks. -->
+    <textarea name="marks" placeholder="Enter marks in the format: English|80"></textarea>
+    <!-- Phone. -->
+    <label for="phone">Phone (Please add +91 before):</label>
+    <input type="tel" name="phone"  id="phone" pattern="^\+91[6-9]{1}[2-9]{1}[0-9]{8}">
+    <!-- E-mail. -->
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$">
+
+
+    <input type="submit" id="submit" name="submit">
+
+  </form>
+  <!-- Javascript linked. -->
+  <script src="script/script.js"></script>
+</body>
+</html>
