@@ -31,7 +31,7 @@
     <p id="output">
       <?php
 
-      require 'email_process.php';
+      require_once 'email_process.php';
 
       if (isset($_POST['submit'])) {
         // Function call to send email.
