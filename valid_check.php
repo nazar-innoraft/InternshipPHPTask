@@ -1,6 +1,6 @@
 <?php
 /**
- * check_valid function check if any session is exits or not.
+ * This function check if any session is exits or not.
  *
  * @return bool
  *  Return true if session exit else false.

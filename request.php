@@ -4,6 +4,7 @@
  *
  * @param string $url
  *   Url is taking as input to call api.
+ *
  * @return string
  *   Returning JSON file.
  */

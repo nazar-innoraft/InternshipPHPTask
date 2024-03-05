@@ -2,6 +2,7 @@
 
 require 'pdf.php';
 require 'connection.php';
+require 'valid_marks.php';
 
 // Getting input from submitted form.
 if (isset($_POST['submit'])) {
@@ -9,9 +10,13 @@ if (isset($_POST['submit'])) {
 
   // Upload image.
   $uploadDir = 'uploads/';
-  $uploadFile = $uploadDir . basename($_FILES['image']['name']);
-  move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
-  $image = $uploadFile;
+  $image = $uploadDir . basename($_FILES['image']['name']);
+  move_uploaded_file($_FILES['image']['tmp_name'], $image);
+
+
+  if (!valid_mark($_POST['marks'])) {
+    die("Invalid Marks format");
+  }
 
   // Prepare SQL statement to insert data.
   $sql = "INSERT INTO users (fullname, email, phone) VALUES ('$full_name', '{$_POST['email']}', '{$_POST['phone']}')";
@@ -21,6 +26,6 @@ if (isset($_POST['submit'])) {
 
 
   // Calling function to print PDF.
-  getPdf($_POST['firstName'], $_POST['lastName'], $full_name, $image, $email, $phone, $_POST['marks']);
+  get_pdf($_POST['firstName'], $_POST['lastName'], $full_name, $image, $_POST['email'], $_POST['phone'], $_POST['marks']);
 }
 ?>

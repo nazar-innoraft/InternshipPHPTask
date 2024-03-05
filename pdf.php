@@ -24,12 +24,13 @@ require('vendor/autoload.php');
  *
  * @return void
  */
-function getPdf(string $firstName, string $lastName, string $fullName, mixed $image, string $email, string $phone, string $markString): void {
+function get_pdf(string $firstName, string $lastName, string $fullName, mixed $image, string $email, string $phone, string $markString): void {
   $pdf = new Fpdf();
   $pdf->AddPage();
-  $pdf->SetFont("Arial", "", 16);
   // Prints personal Details.
+  $pdf->SetFont("Arial", "B", 20);
   $pdf->Cell(0, 10, "Personal details", 0, 1, 'C');
+  $pdf->SetFont("Arial", "", 16);
   $pdf->Cell(50, 10, "First Name", 1, 0);
   $pdf->Cell(0, 10, $firstName, 1, 1);
   $pdf->Cell(50, 10, "Last Name", 1, 0);
@@ -42,7 +43,9 @@ function getPdf(string $firstName, string $lastName, string $fullName, mixed $im
   $pdf->Cell(0, 10, $phone, 1, 1);
   $pdf->Cell(0, 10, "", 0, 1);
   // Prints subject name along with it's marks.
+  $pdf->SetFont("Arial", "B", 20);
   $pdf->Cell(0, 10, "Academic Details", 0, 1, 'C');
+  $pdf->SetFont("Arial", "", 16);
   $pdf->Cell(100, 10, "Subject", 1, 0);
   $pdf->Cell(0, 10, "Marks", 1, 1);
   $marks = explode("\n", $markString);
