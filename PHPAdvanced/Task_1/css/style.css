@@ -1,22 +1,31 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.wrapper{
-  width: 1000px;
+#logo {
+  margin: 15px;
+  height: 60px;
+}
+.wrapper {
+  width: 1200px;
   max-width: 90%;
   margin: 0 auto;
 }
-header{
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+header {
   width: 100%;
   background: rgb(109, 109, 193);
-  .upper{
+  .upper {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    .menu{
-      .triangle{
+    .menu {
+      .triangle {
         position: absolute;
         top: -100px;
         right: -100px;
@@ -25,25 +34,95 @@ header{
         rotate: 45deg;
         background: white;
       }
-      a{
-        margin: 10px;
-        font-size:50px;
+      a {
+        margin: 15px;
+        font-size: 40px;
         position: relative;
         z-index: 1;
         color: black;
       }
     }
   }
-  .lower{
+  .lower {
     display: flex;
     flex-direction: row;
-    .left{
-      h2{
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    .left {
+      h2 {
         font-size: 80px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color: white;
-
+      }
+      .line {
+        height: 8px;
+        width: 170px;
+        background-color: white;
+        margin: 10px 0;
+      }
+      p {
+        font-size: 20px;
       }
     }
   }
+}
+.info {
+  width: 1100px;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 24px;
+  opacity: 0.7;
+}
+nav {
+  background: wheat;
+  font-size: 20px;
+  padding: 10px 0;
+}
+section {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .left {
+    width: 45%;
+  }
+  .right {
+    width: 45%;
+  }
+  .service-title {
+    font-size: 60px;
+    font-weight: 700;
+    color: rgb(236, 167, 18);
+  }
+  .service-secondary-title {
+    font-size: 60px;
+    font-weight: 700;
+    color: rgb(2, 2, 28);
+  }
+  .child {
+    img {
+      width: 60px;
+    }
+  }
+  ul {
+    li {
+      display: block;
+      margin: 6px 0;
+      color: black;
+      margin: 5px 0;
+    }
+  }
+}
+section > div > img {
+  width: 100%;
+}
+#explore {
+  display: inline-block;
+  padding: 10px;
+  border: 3px solid rgb(209, 102, 20);
+  margin-top: 5px;
+  font-weight: 600;
+  border-radius: 4px;
 }

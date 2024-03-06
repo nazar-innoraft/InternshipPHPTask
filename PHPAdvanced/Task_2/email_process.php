@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 require '../../vendor/autoload.php';
 
 /**
- * send_email function used to send email to given recipient with given subject and message.
+ * This function used to send email to given recipient with given subject and message.
  *
  * @param  string $recipient_email
  *  Recipient's email address.
@@ -17,6 +17,7 @@ require '../../vendor/autoload.php';
  *  Email subject.
  * @param  string $message
  *  Main message to send in email.
+ *
  * @return void
  */
 function send_email (string $recipient_email, string $recipient_name, string $subject, string $message): void {
