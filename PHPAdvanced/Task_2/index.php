@@ -32,10 +32,15 @@
       <?php
 
       require_once 'email_process.php';
+      require_once 'email_validation.php';
 
       if (isset($_POST['submit'])) {
-        // Function call to send email.
-        send_email($_POST['email'], $_POST['fullName'], $_POST['subject'], $_POST['message']);
+        if (email_check($_POST['email'])) {
+          // Function call to send email.
+          send_email($_POST['email'], $_POST['fullName'], $_POST['subject'], $_POST['message']);
+        } else {
+          die('Email is not correct.');
+        }
       }
       ?>
     </p>
