@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require '../../vendor/autoload.php';
+require "email_credential.php";
 
 /**
  * This function used to send email to given recipient with given subject and message.
@@ -21,8 +22,9 @@ require '../../vendor/autoload.php';
  * @return void
  */
 function send_email (string $recipient_email, string $recipient_name, string $subject, string $message): void {
-  require_once "email_credential.php";
   $mail = new PHPMailer(true);
+  global $senderEmail;
+  global $senderPassword;
   try {
     // Server settings.
     $mail->isSMTP();
