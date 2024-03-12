@@ -20,6 +20,7 @@ end_session();
     <p>Your are logged out</p>
     <!-- Login button. -->
     <a href="login.php">Click to Login</a>
+    <p>Not a user <b><a href="sign_up.php">SignUp</a></b></p>
   </div>
 </body>
 

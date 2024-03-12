@@ -20,9 +20,9 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
     <h2>Login Form</h2>
     <form action="login.php" method="post">
       <label for="user_name">user_name</label>
-      <input type="text" name="user_name">
+      <input type="text" name="user_name" required>
       <label for="password">Password</label>
-      <input type="password" name="password">
+      <input type="password" name="password" required>
       <input type="submit" name="submit" id="submit">
       <p>Not a User <b><a href="sign_up.php">Sign Up</a></b></p>
       <span id="wrong">
@@ -36,8 +36,8 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
           // echo check_login_details($_POST['user_name'], $_POST['password']);
 
           if (check_login_details($_POST['user_name'], $_POST['password'])) {
-            $_SESSION['user_name'] = $user_name;
-            $_SESSION['password'] = $password;
+            $_SESSION['user_name'] = $_POST['user_name'];
+            $_SESSION['password'] = $_POST['password'];
             header('Location: index.php');
             exit();
           } else {
