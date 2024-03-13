@@ -23,9 +23,6 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
   <div class="container">
     <h2>SignUp Form</h2>
     <form action="sign_up.php" method="post">
-      <label for="user_name">user_name</label>
-      <input type="text" name="user_name" required>
-
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" required>
 
@@ -42,7 +39,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
     </form>
     <?php
     if (isset($_POST['submit'])) {
-      insert_login_details($_POST['user_name'], $_POST['pass_word'], $_POST['email']);
+      insert_login_details($_POST['email'], $_POST['pass_word']);
     }
     ?>
   </div>

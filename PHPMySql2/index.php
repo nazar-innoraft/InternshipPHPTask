@@ -22,7 +22,6 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) {
     // Content show as per page number.
     parse_str($_SERVER['QUERY_STRING'], $parameters);
     if (isset($parameters['q'])) {
-      echo $parameters['q'];
       if ($parameters['q'] > 0 && $parameters['q'] <= 7) {
         include "pages/page{$parameters['q']}.php";
       } else {
@@ -44,11 +43,9 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) {
     <a href="?q=5">5</a>
     <a href="?q=6">6</a>
   </div>
-    <!-- Button to log out. -->
-    <a id="logout" href="logout.php">Click to Logout</a>
-  <div>
+  <!-- Button to log out. -->
+  <a id="logout" href="logout.php">Click to Logout</a>
 
-  </div>
 </body>
 
 </html>

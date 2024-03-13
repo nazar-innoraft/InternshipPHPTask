@@ -14,7 +14,7 @@ require 'db_credential.php';
  *
  * @return void
  */
-function insert_login_details (string $user, string $pass, string $email): void {
+function insert_login_details (string $email, string $pass): void {
   global $host, $username, $password, $db;
   $conn = new mysqli($host, $username, $password, $db);
   if($conn->connect_error){
@@ -23,9 +23,9 @@ function insert_login_details (string $user, string $pass, string $email): void 
   }
 
   // Checking if username alreeady exist or not.
-  $check_username = "SELECT * FROM credential WHERE user = ?";
+  $check_username = "SELECT * FROM credential WHERE email = ?";
   $mysqli_check = $conn->prepare($check_username);
-  $mysqli_check->bind_param("s", $user);
+  $mysqli_check->bind_param("s", $email);
   $mysqli_check->execute();
   $res = $mysqli_check->get_result();
   $mysqli_check->close();
@@ -34,9 +34,9 @@ function insert_login_details (string $user, string $pass, string $email): void 
   } else {
     // Inserting the user credentials.
     $hassed_pass = password_hash($pass, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO credential (user, pass_word, email) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO credential (email, pass_word) VALUES (?, ?)";
     $mysql = $conn->prepare($sql);
-    $mysql->bind_param("sss", trim($user), $hassed_pass, trim($email));
+    $mysql->bind_param("ss", trim($email), $hassed_pass);
 
     if ($mysql->execute()) {
       echo 'Registration Successful';
@@ -48,7 +48,7 @@ function insert_login_details (string $user, string $pass, string $email): void 
   $conn->close();
 }
 
-function check_login_details (string $user, string $pass) {
+function check_login_details (string $email, string $pass) {
   $flag = false;
   global $host, $username, $password, $db;
   $conn = new mysqli($host, $username, $password, $db);
@@ -56,16 +56,16 @@ function check_login_details (string $user, string $pass) {
     echo 'Connection not estsblished';
     exit();
   }
-  $check_username = "SELECT pass_word FROM credential WHERE user = ?";
+  $check_username = "SELECT pass_word FROM credential WHERE email = ?";
   $mysqli_check = $conn->prepare($check_username);
-  $mysqli_check->bind_param("s", $user);
+  $mysqli_check->bind_param("s", $email);
   $mysqli_check->execute();
   $result = $mysqli_check->get_result();
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     // Verify the password
     if (password_verify($pass, $row['pass_word'])) {
-      echo "Login successful! Welcome, " . $row['user'];
+      echo "Login successful! Welcome, " . $row['email'];
       $flag = true;
     } else {
       // Password is incorrect

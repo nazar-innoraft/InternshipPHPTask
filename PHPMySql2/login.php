@@ -19,8 +19,8 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
   <div class="container">
     <h2>Login Form</h2>
     <form action="login.php" method="post">
-      <label for="user_name">user_name</label>
-      <input type="text" name="user_name" required>
+      <label for="email">email:</label>
+      <input type="email" name="email" required>
       <label for="password">Password</label>
       <input type="password" name="password" required>
       <input type="submit" name="submit" id="submit">
@@ -35,8 +35,8 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
           // If user_name and password matchs then login else give wrong input.
           // echo check_login_details($_POST['user_name'], $_POST['password']);
 
-          if (check_login_details($_POST['user_name'], $_POST['password'])) {
-            $_SESSION['user_name'] = $_POST['user_name'];
+          if (check_login_details($_POST['email'], $_POST['password'])) {
+            $_SESSION['user_name'] = $_POST['email'];
             $_SESSION['password'] = $_POST['password'];
             header('Location: index.php');
             exit();
