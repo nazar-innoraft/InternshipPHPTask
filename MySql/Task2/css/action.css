@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  margin: 20px auto;
+  padding: 20px;
+  font-size: 20px;
+  width: 90%;
+  max-width: 500px;
+  background: radial-gradient(rgb(15, 41, 2), rgb(113, 113, 216));
+}
+body{
+  background: rgb(34, 115, 16);
+}
+a{
+  color: white;
+  text-decoration: none;
+}
