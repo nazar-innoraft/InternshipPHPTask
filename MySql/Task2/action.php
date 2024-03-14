@@ -17,7 +17,6 @@ require 'manage_db.php';
     <?php
     if (isset($_POST['submit'])) {
       $ob = new Database();
-      $ob->getConnection();
       $ob->insert_employee_code_table($_POST['employee_code'], $_POST['employee_code_name'], $_POST['employee_domain']);
       $ob->insert_employee_details($_POST['employee_id'], $_POST['employee_first_name'], $_POST['employee_last_name'], $_POST['graduation_precentile']);
       $ob->insert_employee_salary($_POST['employee_id'], $_POST['employee_salary'], $_POST['employee_code']);
