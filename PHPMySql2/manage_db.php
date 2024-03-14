@@ -48,7 +48,18 @@ function insert_login_details (string $email, string $pass): void {
   $conn->close();
 }
 
-function check_login_details (string $email, string $pass) {
+/**
+ * This function verify login credentials.
+ *
+ * @param  mixed $email
+ *  User's email.
+ * @param  mixed $pass
+ *  User's password.
+ *
+ * @return bool
+ *  Return true if credential match else false.
+ */
+function check_login_details (string $email, string $pass): bool {
   $flag = false;
   global $host, $username, $password, $db;
   $conn = new mysqli($host, $username, $password, $db);
@@ -80,5 +91,25 @@ function check_login_details (string $email, string $pass) {
   $mysqli_check->close();
   $conn->close();
   return $flag;
+}
+function check_email (string $email): bool {
+  global $host, $username, $password, $db;
+  $conn = new mysqli($host, $username, $password, $db);
+  if ($conn->connect_error) {
+    echo 'Connection not estsblished';
+    exit();
+  }
+  $check_username = "SELECT * FROM credential WHERE email = ? limit 1";
+  $mysqli_check = $conn->prepare($check_username);
+  $mysqli_check->bind_param("s", $email);
+  $mysqli_check->execute();
+  // echo var_dump($mysqli_check);
+  $result = $mysqli_check->get_result();
+  echo var_dump($result);
+  if ($result->num_rows > 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 ?>
