@@ -23,8 +23,8 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
       <input type="email" name="email" required>
       <label for="password">Password</label>
       <input type="password" name="password" required>
-      <input type="submit" name="submit" id="submit">
-      <p>Not a User <b><a href="sign_up.php">Sign Up</a></b></p>
+      <input type="submit" name="submit" id="submit" value="Login">
+      <p>Not a User <b><a href="sign_up.php">Sign Up</a></b> <b><a href="forgot.php">Forgot password</a></b></p>
       <span id="wrong">
         <?php
         // If not logged in user can LOGIN using credentials and on successful login it will redirect to page 4.

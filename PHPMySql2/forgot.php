@@ -1,3 +1,8 @@
+<?php
+
+require 'connection.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,20 +15,27 @@
 
 <body>
   <div class="container">
+    <h2>Forgot Password</h2>
+    <hr>
     <form action="forgot.php" method="post">
-      <label for="email">Enter your email for get otp</label>
+      <label for="email">Enter your email :</label>
       <input type="email" name="email" id="email">
+
+      <input type="submit" name="submit" id="submit">
+    </form>
+    <div class="message">
       <?php
-      require 'manage_db.php';
       if (isset($_POST['submit'])) {
-        if (check_email($_POST['email'])) {
-          echo '<label for="otp">Enter otp: </label>
-          <input type="number" max="6">';
+        $ob = new connection();
+        if ($ob->is_exist($_POST['email'])) {
+          $message = $ob->send_forgot_email($_POST['email']);
+          echo $message;
+        } else {
+          echo "Email not registered";
         }
       }
       ?>
-      <input type="submit" name="submit" id="submit">
-    </form>
+    </div>
   </div>
 </body>
 

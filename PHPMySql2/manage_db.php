@@ -2,6 +2,7 @@
 
 require 'db_credential.php';
 
+
 /**
  * This function add login details into server.
  *
@@ -23,7 +24,7 @@ function insert_login_details (string $email, string $pass): void {
   }
 
   // Checking if username alreeady exist or not.
-  $check_username = "SELECT * FROM credential WHERE email = ?";
+  $check_username = "SELECT * FROM credential WHERE email = ? LIMIT 1";
   $mysqli_check = $conn->prepare($check_username);
   $mysqli_check->bind_param("s", $email);
   $mysqli_check->execute();
