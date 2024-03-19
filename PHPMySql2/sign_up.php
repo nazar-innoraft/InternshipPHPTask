@@ -39,7 +39,9 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) {
     </form>
     <?php
     if (isset($_POST['submit'])) {
-      insert_login_details($_POST['email'], $_POST['pass_word']);
+      // Creating an object.
+      $ob = new DataOparation();
+      $ob->insert_login_details($_POST['email'], $_POST['pass_word']);
     }
     ?>
   </div>

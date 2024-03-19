@@ -56,7 +56,7 @@ a {
   text-decoration: none;
   display: inline-block;
   padding: 20px;
-  background: wheat;
+  background: linear-gradient(rgb(202, 185, 225), rgb(166, 255, 156), rgb(235, 33, 161));
 }
 a:hover {
   background-color: blueviolet;
@@ -68,7 +68,7 @@ a:hover {
   width: 200px;
   margin: 10px auto;
 }
-p {
+.questions {
   font-size: 30px;
 }
 .bacground{
