@@ -1,0 +1,80 @@
+/* Styling for login page. */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.container {
+  max-width: 700px;
+  width: 80%;
+  margin: 30px auto;
+  padding: 10px 30px;
+  background-color: wheat;
+  h2{
+    font-size: 25px;
+    color: blueviolet;
+    margin: 10px 0;
+    text-align: center;
+  }
+  input{
+    padding: 5px;
+    width: 100%;
+  }
+}
+#wrong{
+  font-weight: 600;
+  color: red;
+}
+
+/* This styling for input form. */
+#form {
+  background: rgb(158, 223, 78);
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  input {
+    width: 100%;
+  }
+}
+ul {
+  font-size: 30px;
+}
+#submit{
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+/* Styling for index.php page. */
+
+.navPage {
+  margin: 10px auto;
+  font-size: 20px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 20px;
+  background: linear-gradient(rgb(202, 185, 225), rgb(166, 255, 156), rgb(235, 33, 161));
+}
+a:hover {
+  background-color: blueviolet;
+  color: white;
+}
+#logout{
+  display: block;
+  text-align: center;
+  width: 200px;
+  margin: 10px auto;
+}
+.questions {
+  font-size: 30px;
+}
+.bacground{
+  background-color: red;
+  margin: 0 auto;
+  color: white;
+  font-weight: 800;
+  text-align: center;
+}
