@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="../css/style2.css"> -->
   <link rel="stylesheet" href="css/style.css">
   <title>Send Email</title>
 </head>
@@ -15,13 +14,10 @@
     <form method="post">
       <label for="fullName">Enter your name:</label>
       <input type="text" name="fullName">
-
       <label for="email">Enter your email:</label>
       <input type="email" name="email">
-
       <label for="subject">Enter subject of the message:</label>
       <input type="text" name="subject">
-
       <label for="message">Enter your message:</label>
       <textarea name="message" id="message" cols="30" rows="10"></textarea>
 
@@ -39,7 +35,7 @@
           // Function call to send email.
           send_email($_POST['email'], $_POST['fullName'], $_POST['subject'], $_POST['message']);
         } else {
-          die('Email is not correct.');
+          echo 'Email is not correct.';
         }
       }
       ?>

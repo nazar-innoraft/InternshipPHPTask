@@ -1,5 +1,5 @@
 <?php
-// Import PHPMailer classes into the global namespace.
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -23,23 +23,22 @@ require "email_credential.php";
  */
 function send_email (string $recipient_email, string $recipient_name, string $subject, string $message): void {
   $mail = new PHPMailer(true);
-  global $senderEmail;
-  global $senderPassword;
+  global $sender_email, $sender_name, $sender_password, $email_host;
   try {
     // Server settings.
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = $email_host;
     $mail->SMTPAuth = true;
-    $mail->Username = $senderEmail;
-    $mail->Password = $senderPassword;
+    $mail->Username = $sender_email;
+    $mail->Password = $sender_password;
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
     // Sender.
-    $mail->setFrom($senderEmail, 'Nazar');
+    $mail->setFrom($sender_email, $sender_name);
     // Add a recipient.
     $mail->addAddress($recipient_email, $recipient_name);
-    $mail->addReplyTo($senderEmail, 'Nazar');
+    $mail->addReplyTo($sender_email, $sender_name);
 
     $mail->isHTML(true);
     // Set email subject.

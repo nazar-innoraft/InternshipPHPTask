@@ -1,4 +1,4 @@
 <?php
 // Username and password for login to server.
-$senderEmail = "user@example.com";
-$senderPassword = "passcode";
+$sender_email = "user@example.com";
+$sender_password = "passcode";

@@ -1,6 +1,6 @@
 <?php
 
-require 'Api.php';
+require 'API.php';
 
 $i = 12;
 ?>
@@ -18,7 +18,7 @@ $i = 12;
 <body>
   <header>
     <div class="upper">
-      <img id="logo" src="img/innoraft-logo-big-color.png" alt="inno">
+      <img id="logo" src="img/innoraft-logo-big-color.png" alt="innoraft logo">
       <div class="menu">
         <a href=""><i class="fa fa-bars"></i></a>
         <div class="triangle"></div>
@@ -40,7 +40,7 @@ $i = 12;
   </nav>
 
   <!-- Information section. -->
-  <section class="info">
+  <section class="wrapper info">
     Innoraft has been successfully delivering web and mobile solutions to esteemed global clientele. Our key solutions include website design and development, Drupal development and maintenance, mobile app design and development, and E-Commerce solutions. The quality-driven processes for all these services is our USP and we live by them every single day. We love to work with startups, small, medium, and large scale enterprises in the same way i.e. as partners.
   </section>
 
@@ -50,19 +50,19 @@ $i = 12;
     $obj1 = new API($i);
     ?>
     <div class="left">
-      <img src=<?= $obj1->get_field_image() ?> alt="">
+      <img src=<?= $obj1->getFieldImage() ?> alt="FieldImage">
     </div>
     <div class="right">
-      <p><a href=<?= $obj1->get_alias() ?>> <?= $obj1->get_field_secondary_title() ?> </a></p>
+      <p><a href=<?= $obj1->getAlias() ?>> <?= $obj1->getFieldSecondaryTitle() ?> </a></p>
       <div class="child">
         <?php for ($m = 0; $m < $obj1->child_count; $m++) : ?>
           <img src="<?php echo $obj1->icon_array[$m]; ?>">
         <?php endfor; ?>
       </div>
       <div class="list">
-        <?= $obj1->get_field_service(); ?>
+        <?= $obj1->getFieldService(); ?>
       </div>
-      <a id="explore" href=<?= $obj1->get_alias() ?>>EXPLORE MORE</a>
+      <a id="explore" href=<?= $obj1->getAlias() ?>>EXPLORE MORE</a>
     </div>
   </section>
 
@@ -73,20 +73,20 @@ $i = 12;
     $obj2 = new API($i);
     ?>
     <div class="left">
-      <p><a href=<?= $obj2->get_alias() ?>> <?= $obj2->get_field_secondary_title() ?> </a></p>
+      <p><a href=<?= $obj2->getAlias() ?>> <?= $obj2->getFieldSecondaryTitle() ?> </a></p>
       <div class="child">
         <?php for ($m = 0; $m < $obj2->child_count; $m++) : ?>
           <img src="<?php echo $obj2->icon_array[$m]; ?>">
         <?php endfor; ?>
       </div>
       <div class="list">
-        <?= $obj2->get_field_service(); ?>
+        <?= $obj2->getFieldService(); ?>
       </div>
-      <a id="explore" href=<?= $obj2->get_alias() ?>>EXPLORE MORE</a>
+      <a id="explore" href=<?= $obj2->getAlias() ?>>EXPLORE MORE</a>
     </div>
 
     <div class="right">
-      <img src=<?= $obj2->get_field_image() ?> alt="">
+      <img src=<?= $obj2->getFieldImage() ?> alt="FieldImage">
     </div>
   </section>
 
@@ -97,19 +97,19 @@ $i = 12;
     $obj3 = new API($i);
     ?>
     <div class="left">
-      <img src=<?= $obj3->get_field_image() ?> alt="">
+      <img src=<?= $obj3->getFieldImage() ?> alt="FieldImage">
     </div>
     <div class="right">
-      <p><a href=<?= $obj3->get_alias() ?>> <?= $obj3->get_field_secondary_title() ?> </a></p>
+      <p><a href=<?= $obj3->getAlias() ?>> <?= $obj3->getFieldSecondaryTitle() ?> </a></p>
       <div class="child">
         <?php for ($m = 0; $m < $obj3->child_count; $m++) : ?>
           <img src="<?php echo $obj3->icon_array[$m]; ?>">
         <?php endfor; ?>
       </div>
       <div class="list">
-        <?= $obj3->get_field_service(); ?>
+        <?= $obj3->getFieldService(); ?>
       </div>
-      <a id="explore" href=<?= $obj3->get_alias() ?>>EXPLORE MORE</a>
+      <a id="explore" href=<?= $obj3->getAlias() ?>>EXPLORE MORE</a>
     </div>
   </section>
 
@@ -120,19 +120,19 @@ $i = 12;
     $obj4 = new API($i);
     ?>
     <div class="left">
-      <p><a href=<?= $obj4->get_alias() ?>> <?= $obj4->get_field_secondary_title() ?> </a></p>
+      <p><a href=<?= $obj4->getAlias() ?>> <?= $obj4->getFieldSecondaryTitle() ?> </a></p>
       <div class="child">
         <?php for ($m = 0; $m < $obj4->child_count; $m++) : ?>
           <img src="<?php echo $obj4->icon_array[$m]; ?>">
         <?php endfor; ?>
       </div>
       <div class="list">
-        <?= $obj4->get_field_service(); ?>
+        <?= $obj4->getFieldService(); ?>
       </div>
-      <a id="explore" href=<?= $obj4->get_alias() ?>>EXPLORE MORE</a>
+      <a id="explore" href=<?= $obj4->getAlias() ?>>EXPLORE MORE</a>
     </div>
     <div class="right">
-      <img src=<?= $obj4->get_field_image() ?> alt="">
+      <img src=<?= $obj4->getFieldImage() ?> alt="FieldImage">
     </div>
   </section>
 

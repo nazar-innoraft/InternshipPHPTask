@@ -8,7 +8,7 @@
  * @return string
  *  Returning JSON file.
  */
-function email_val (string $url): string {
+function request (string $url): string {
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $data = curl_exec($ch);
