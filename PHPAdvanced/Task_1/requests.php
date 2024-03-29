@@ -8,7 +8,7 @@
  * @return mixed
  *  Returning associative array.
  */
-function request (mixed $url): mixed {
+function request(mixed $url):array {
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -17,4 +17,3 @@ function request (mixed $url): mixed {
   $data = json_decode($response, true);
   return $data;
 }
-?>

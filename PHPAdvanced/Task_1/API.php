@@ -24,7 +24,7 @@ class API {
    *
    * @return void
    */
-  function __construct ($i) {
+  function __construct($i) {
     $this->field_secondary_title = self::$data[$i]['attributes']['field_secondary_title']['value'];
     $this->field_service = self::$data[$i]['attributes']['field_services']['value'];
     $this->field_image = $this->domain_name. request(self::$data[$i]['relationships']['field_image']['links']['related']['href'])['data']['attributes']['uri']['url'];
@@ -37,7 +37,7 @@ class API {
    *
    * @return void
    */
-  public static function fetchData (): void {
+  public static function fetchData():void {
     $response = request(self::$main_url);
     self::$data = $response['data'];
   }
@@ -45,15 +45,15 @@ class API {
   /**
    * This function gets child image and store in an array.
    *
-   * @param  int $i
+   * @param int $i
    *  Section number.
    *
    * @return void
    */
-  public function getIcon ($i): void {
+  public function getIcon(int $i):void {
     $res = request(self::$data[$i]['relationships']['field_service_icon']['links']['related']['href']);
     $this->child_count = count($res['data']);
-    for($j=0; $j< $this->child_count; $j++){
+    for($j=0; $j< $this->child_count; $j++) {
       $re_link = request($res['data'][$j]['relationships']['field_media_image']['links']['related']['href']);
       array_push($this->icon_array, $this->domain_name. $re_link['data']['attributes']['uri']['url']);
     }
@@ -65,7 +65,7 @@ class API {
    * @return string
    *  Return value of the variable field_secondary_title.
    */
-  public function getFieldSecondaryTitle (): string {
+  public function getFieldSecondaryTitle():string {
     return $this->field_secondary_title;
   }
 
@@ -75,7 +75,7 @@ class API {
    * @return mixed
    *  Return value of the variable field_image.
    */
-  public function getFieldImage (): mixed {
+  public function getFieldImage():mixed {
     return $this->field_image;
   }
 
@@ -85,7 +85,7 @@ class API {
    * @return string
    *  Return value of the variable field_service.
    */
-  public function getFieldService (): string {
+  public function getFieldService():string {
     return $this->field_service;
   }
 
@@ -95,7 +95,7 @@ class API {
    * @return string
    *  Return value of the variable alias.
    */
-  public function getAlias (): string {
+  public function getAlias():string {
     return $this->alias;
   }
 }

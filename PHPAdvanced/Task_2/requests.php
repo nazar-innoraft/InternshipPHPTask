@@ -6,9 +6,9 @@
  *  Url is taking as input to call api.
  *
  * @return string
- *  Returning JSON file.
+ *  Returning response.
  */
-function request (string $url): string {
+function request(string $url):string {
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $data = curl_exec($ch);
@@ -16,4 +16,3 @@ function request (string $url): string {
 
   return $data;
 }
-?>

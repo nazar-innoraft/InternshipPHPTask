@@ -21,7 +21,7 @@ require "email_credential.php";
  *
  * @return void
  */
-function send_email (string $recipient_email, string $recipient_name, string $subject, string $message): void {
+function send_email(string $recipient_email, string $recipient_name, string $subject, string $message):void {
   $mail = new PHPMailer(true);
   global $sender_email, $sender_name, $sender_password, $email_host;
   try {
