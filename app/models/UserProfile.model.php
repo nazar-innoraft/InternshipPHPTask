@@ -1,7 +1,20 @@
 <?php
 
+/**
+ * This class extends Database, this class check profile details.
+ */
 class UserProfile extends Database {
-  public function isProfileExist($email) {
+
+  /**
+   *  This function check check profile exists or not.
+   *
+   * @param  string $email
+   *   User's email.
+   *
+   * @return array or bool
+   *   Return result string or false.
+   */
+  public function isProfileExist($email):array | bool {
     try {
       $sql = "SELECT * from credential WHERE email = ? LIMIT 1";
       $this->query($sql, [$email]);
@@ -14,7 +27,17 @@ class UserProfile extends Database {
       return $e->getMessage();
     }
   }
-  public function update(string $first_name, string $last_name, string $phone, string $email) {
+
+  /**
+   *  This function update profile.
+   *
+   * @param  string $email
+   *   User's email.
+   *
+   * @return string
+   *   Return result string.
+   */
+  public function update(string $first_name, string $last_name, string $phone, string $email):string {
     try {
       $sql = "UPDATE credential SET first_name = ?, last_name = ?, phone = ? WHERE email = ?";
       $this->query($sql, [$first_name, $last_name, $phone, $email]);

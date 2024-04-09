@@ -1,16 +1,20 @@
 <?php
 
+/**
+ * This class extends Database, this class update password, otp, token and also check if anything present or not.
+
+ */
 class UserForgotpassword extends Database {
   /**
    * This function update password to db.
    *
    * @param  mixed $email
-   *  User's email.
+   *   User's email.
    * @param  mixed $password
-   *  User's password.
+   *   User's password.
    *
    * @return string
-   *  Return result.
+   *   Return result.
    */
   public function updatePassword(string $email, string $password): string {
     $sql = "UPDATE credential SET password = ? WHERE email = ?";
@@ -26,11 +30,11 @@ class UserForgotpassword extends Database {
    * This function update genarated otp to db.
    *
    * @param  mixed $email
-   *  User's email.
+   *   User's email.
    *
    * @return void
    */
-  public function updateOtp(string $email)  {
+  public function updateOtp(string $email):void {
     if ($this->isUserPresent($email)) {
       $otp = genarate_otp();
       send_email($email, $otp);
@@ -42,10 +46,10 @@ class UserForgotpassword extends Database {
    * This function user present in db or not.
    *
    * @param  mixed $email
-   *  User's email.
+   *   User's email.
    *
    * @return bool
-   *  Return true if present else false.
+   *   Return true if present else false.
    */
   protected function isUserPresent(string $email): bool {
     $sql = "SELECT email from credential WHERE email = ? LIMIT 1";
@@ -60,10 +64,10 @@ class UserForgotpassword extends Database {
    * This function update genarated token to db.
    *
    * @param  mixed $email
-   *  User's email.
+   *   User's email.
    *
    * @return string
-   *  Return string of result.
+   *   Return string of result.
    */
   public function updateToken(string $email) {
     if ($this->isUserPresent($email)) {
@@ -81,12 +85,12 @@ class UserForgotpassword extends Database {
    * This function checks if token present to db.
    *
    * @param  mixed $email
-   *  User's email.
+   *   User's email.
    *
    * @return string
-   *  Return string of result.
+   *   Return string of result.
    */
-  public function isTokenPresent(string $token, string $pass = '') {
+  public function isTokenPresent(string $token, string $pass = ''):string {
     $sql = "SELECT email, token_expiry from credential WHERE token = ?";
     $this->query($sql, [$token]);
     $res = $this->fetch();
@@ -106,13 +110,13 @@ class UserForgotpassword extends Database {
    * This function update token to databse.
    *
    * @param  mixed $email
-   *  User's email.
+   *   User's email.
    * @param  mixed $token
-   *  System gernarated token.
+   *   System gernarated token.
    *
    * @return void
    */
-  private function updateTokenToDatabse(string $email, string $token) {
+  private function updateTokenToDatabse(string $email, string $token):void {
     $expiry = date('Y-m-d H:i:s', time() + 5 * 60);
     $sql = "UPDATE credential SET token = ?, token_expiry = ? WHERE email = ?";
     $this->query($sql, [$token, $expiry, $email]);
@@ -122,13 +126,13 @@ class UserForgotpassword extends Database {
    * This function update otp to databse.
    *
    * @param  mixed $email
-   *  User's email.
+   *   User's email.
    * @param  mixed $token
-   *  System gernarated token.
+   *   System gernarated token.
    *
    * @return void
    */
-  private function updateOtpToDatabse(string $email, int $otp ) {
+  private function updateOtpToDatabse(string $email, int $otp ): void {
     $expiry = date('Y-m-d H:i:s', time());
     $sql = "UPDATE TABLE credential SET otp = ?, otp_expiry = ? WHERE email = ?";
     $this->query($sql, [$otp, $expiry, $email]);

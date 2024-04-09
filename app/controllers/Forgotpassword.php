@@ -1,14 +1,35 @@
 <?php
+
+/**
+ * Forgotpassword class extends Controller class, this class updates password with otp and token.
+ */
 class Forgotpassword extends Controller {
   private $model;
   private $data = [];
 
-  public function index($a = '', $b = '', $c = '') {
+  /**
+   * This function show forgot password page.
+   *
+   * @param  mixed $a
+   *   Url data.
+   * @param  mixed $b
+   *   Url data.
+   * @param  mixed $c
+   *   Url data.
+   *
+   * @return void
+   */
+  public function index($a = '', $b = '', $c = ''): void {
     $this->data['show_option'] = 'true';
     $this->view('Forgotpassword', $this->data);
   }
 
-  public function updateWithOtp () {
+  /**
+   * This function update password with otp.
+   *
+   * @return void
+   */
+  public function updateWithOtp(): void {
     if (isset($_POST['get_otp'])) {
       $this->model = $this->model('UserForgotpassword');
       $this->model->updateOtp($this->input('email'));
@@ -17,7 +38,12 @@ class Forgotpassword extends Controller {
     $this->view('Forgotpassword', $this->data);
   }
 
-  public function updateWithToken(string $token = '') {
+  /**
+   * This function update password with token.
+   *
+   * @return void
+   */
+  public function updateWithToken(string $token = ''): void {
     if ($token == '') {
       if (isset($_POST['reset_link'])) {
         $this->data['method'] = 'token';

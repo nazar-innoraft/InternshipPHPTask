@@ -1,9 +1,21 @@
 <?php
 
+/**
+ * This class extends Controller class, this class show profiles.
+ */
 class Profile extends Controller {
   private $data = ['success_message' => '', 'error_message' => ''];
   private $model;
-  public function index($data = []) {
+
+  /**
+   * This function show profile.
+   *
+   * @param  mixed $data
+   *   User's email
+   *
+   * @return void
+   */
+  public function index($data = []): void {
     if (is_loggedin()) {
       $this->model = $this->model('UserProfile');
       if (isset($_POST['update'])) {
@@ -24,7 +36,13 @@ class Profile extends Controller {
       exit;
     }
   }
-  private function updateProfile() {
+
+  /**
+   * This function update profile.
+   *
+   * @return void
+   */
+  private function updateProfile(): void {
 
     if (isset($_FILES['imageFile'])) {
       $file_name = $_SESSION['username'] . '.jpg';

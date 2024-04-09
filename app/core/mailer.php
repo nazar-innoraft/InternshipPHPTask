@@ -10,9 +10,9 @@ require '../vendor/autoload.php';
  * This function sends reset link email and otp.
  *
  * @param mixed $recipient_email
- *  User's email.
+ *   User's email.
  * @param mixed $data
- *  System generated unique token for validation.
+ *   System generated unique token for validation.
  *
  * @return void
  */

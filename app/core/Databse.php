@@ -30,14 +30,14 @@ class Database {
    * This function run sql query.
    *
    * @param  mixed $sql
-   *  Sql qruery string.
+   *   Sql qruery string.
    * @param  mixed $params
-   *  Parameters for sql.
+   *   Parameters for sql.
    *
-   * @return string
-   *  Returns result.
+   * @return bool
+   *   Returns true or false.
    */
-  public function query ($sql, $params = []):string {
+  public function query ($sql, $params = []):bool {
     try {
       if (empty($params)) {
         $this->result = $this->conn->prepare($sql);
@@ -48,34 +48,36 @@ class Database {
       }
     } catch (PDOException $e) {
       echo 'Error in connection ' . $e->getMessage();
-      return $e->getMessage();
     }
   }
 
   /**
    * This function returns row count.
    *
-   * @return void
+   * @return int
+   *   Return row count.
    */
-  public function row_count() {
+  public function row_count():int {
     return $this->result->rowCount();
   }
 
   /**
    * This function returns all rows.
    *
-   * @return void
+   * @return array
+   *   Return array.
    */
-  public function fetch_all() {
+  public function fetch_all():array {
     return $this->result->fetchAll(PDO::FETCH_ASSOC);
   }
 
   /**
    * This function returns first row.
    *
-   * @return void
+   * @return array
+   *   Return array.
    */
-  public function fetch() {
+  public function fetch():array {
     return $this->result->fetch(PDO::FETCH_ASSOC);
   }
 }

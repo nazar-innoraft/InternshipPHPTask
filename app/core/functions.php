@@ -4,7 +4,7 @@
  * This function checks is user is loggedin or not.
  *
  * @return bool
- *  Returns true if logged in else false.
+ *   Returns true if logged in else false.
  */
 function is_loggedin():bool {
   session_start();
@@ -41,7 +41,7 @@ function unset_session() {
  * This function checks is password is valid or not.
  *
  * @return string
- *  Returns result.
+ *   Returns result.
  */
 function is_password_valid(string $password, string $cpassword): string {
   $passwordErr = 'SUCCESS';
@@ -69,9 +69,18 @@ function is_password_valid(string $password, string $cpassword): string {
  * This function genrate otp.
  *
  * @return int
- *  Returns random number of length 6.
+ *   Returns random number of length 6.
  */
 function genarate_otp():int {
   return mt_rand(111111, 999999);
 }
 
+  /**
+   * This function sets session.
+   *
+   * @return void
+   */
+  function setSession(string $email):void {
+    session_start();
+    $_SESSION['username'] = $email;
+  }

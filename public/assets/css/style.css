@@ -108,3 +108,17 @@ label {
   display: none;
 }
 
+a {
+  display: block;
+  padding: 5px 7px;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 3px;
+}
+
+a:hover {
+  background-color: aqua;
+}
+

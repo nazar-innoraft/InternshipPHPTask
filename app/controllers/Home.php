@@ -1,10 +1,19 @@
 <?php
 
+/**
+ * This class extends Controller class, this class show home page.
+ */
 class Home extends Controller {
   private $model;
   private $data1 = [];
   private $data2 = [];
-  public function index () {
+
+  /**
+   * This function shows home page.
+   *
+   * @return void
+   */
+  public function index ():void {
     if(is_loggedin()){
       $this->model = $this->model('UserHome');
       if (isset($_POST['submit_post'])) {
@@ -20,7 +29,12 @@ class Home extends Controller {
     }
   }
 
-  public function handlePosts() {
+  /**
+   * This function handle uploaded post.
+   *
+   * @return void
+   */
+  public function handlePosts():void {
     $file_name = null;
     $content = $this->input('content');
     if (!empty($content)) {
@@ -30,23 +44,20 @@ class Home extends Controller {
           $uploadDir = 'assets/post_images/';
           $fileExtension = pathinfo($_FILES['upload_file']['name'], PATHINFO_EXTENSION);
           $file_name = uniqid() . '.' . $fileExtension;
-          echo var_dump($file_name);
-          echo var_dump($_FILES['upload_file']['name']);
 
           $uploadedFile = $uploadDir . $file_name;
           echo var_dump($uploadedFile);
           if (move_uploaded_file($_FILES['upload_file']['tmp_name'], $uploadedFile)) {
-            echo var_dump($this->model->updatePost($content, $file_name));
+          $this->model->updatePost($content, $file_name);
           } else {
-            echo 'not moving';
+            $this->data2['error_message'] = 'not moving';
           }
         } else {
-          echo 'image is too large';
+          $this->data2['error_message'] = 'image is too large';
           return;
         }
       } else {
-        echo var_dump($this->model->updatePost($content));
-        echo 'no image';
+        $this->model->updatePost($content);
       }
     } else {
       $this->data2['error_message'] = 'Please write something';

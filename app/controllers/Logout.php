@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * This class logout the user and unset session.
+ */
 class Logout {
-  public function index() {
+  /**
+   * This function unset session and redirect to login page.
+   *
+   * @return void
+   */
+  public function index():void {
     unset_session();
     header('Location: /login');
   }

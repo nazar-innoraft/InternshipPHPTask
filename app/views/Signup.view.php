@@ -36,10 +36,10 @@
 
       <label for="c_password">Enter confirm password :</label>
       <input type="password" name="c_password" id="c_pass">
-
       <input type="submit" name="sign_up" value="Sign Up" id="submit">
       <p id="wrong"></p>
     </form>
+    <a href="/GoogleLogin">Signup with google</a>
     <p id="login-signup-link">Already a user <a href="<?= ROOT ?>/login">Login</a></p>
     <p class="error-message"><?= $data['error_message'] ?? '' ?></p>
     <p class="success-message"><?= $data['success_message'] ?? '' ?></p>

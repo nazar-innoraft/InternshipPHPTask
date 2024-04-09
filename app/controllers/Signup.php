@@ -1,22 +1,25 @@
 <?php
 
-require './../vendor/autoload.php';
-
-use Google\Client as Google_Client;
-use Google\Service\Oauth2 as Google_Service_Oauth2;
-
-
+/**
+ * This class extends Controller class, this class signup page.
+ */
 class Signup extends Controller {
-  private $data = ['success_message' => '', 'error_message' => ''];
-
-  public function index() {
-    if(isset($_GET['code'])) {
-      $this->googleLogin();
-    }
+  private $data = [];
+  /**
+   * This function show signup page.
+   *
+   * @return void
+   */
+  public function index():void {
     $this->view('Signup', $this->data);
   }
 
-  public function signup() {
+  /**
+   * This function handles signup page submitted data.
+   *
+   * @return void
+   */
+  public function signup(): void {
     $userModel = $this->model('UserSignUp');
     if(isset($_POST['sign_up'])){
       $file_name = null;
@@ -51,7 +54,8 @@ class Signup extends Controller {
       }
 
       if ($no_error) {
-        if (is_password_valid($this->input('password'), $this->input('c_password')) == 'SUCCESS') {
+        $result = is_password_valid($this->input('password'), $this->input('c_password'));
+        if ($result == 'SUCCESS') {
           $res = $userModel->insert($this->input('email'), $this->input('first_name'), $this->input('last_name'), $this->input('phone'), $this->input('password'), $file_name);
           if ($res == 'SUCCESS') {
             $this->data['success_message'] = 'You are registered successfully';
@@ -59,42 +63,10 @@ class Signup extends Controller {
             $this->data['error_message'] = $res;
           }
         } else {
-          $this->data['error_message'] = 'Password not in correct format';
+          $this->data['error_message'] = $result;
         }
       }
     }
     $this->index();
-  }
-
-  public function googleLogin () {
-    echo 'google';
-    global $client_id, $client_secret, $redirect_uri;
-
-    $client = new Google_Client();
-    $client->setClientId($client_id);
-    $client->setClientSecret($client_secret);
-    $client->setRedirectUri($redirect_uri);
-    $client->addScope('profile');
-    $client->addScope('email');
-
-    if (isset($_GET['code'])) {
-      $userModel = $this->model('UserSignUp');
-      $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-      if (isset($token['error']) != 'invalid_grant') {
-        $oAuth = new Google_Service_Oauth2($client);
-        $user_data = $oAuth->userinfo_v2_me->get();
-        $email_address = $user_data['email'];
-        $first_name = $user_data['givenName'];
-        $last_name = $user_data['familyName'];
-      }
-      $res = $userModel->insertFromGoogle($first_name, $last_name, $email_address);
-      if ($res == 'SUCCESS') {
-        $this->data['success_message'] = 'You are registered successfully';
-      } else {
-        $this->data['error_message'] = $res;
-      }
-      $this->view('Signup', $this->data);
-    }
-    echo '<a href="' . $client->createAuthUrl() . '">Login with google</a>';
   }
 }

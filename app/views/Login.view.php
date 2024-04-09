@@ -20,6 +20,7 @@
       <div id="pass"><input type="password" name="password" max="20" id="password" required><img class="eye eye-solid" src="<?= ROOT ?>/assets/logo/eye-solid.svg"><img class="eye eye-slash" src="<?= ROOT ?>/assets/logo/eye-slash-solid.svg"></div>
 
       <input type="submit" name="login" value="Login" id="submit">
+      <a href="/GoogleLogin">Login with google</a>
     </form>
     <p id="login-signup-link">Don't have an account <a href="<?= ROOT ?>/signup">SignUp</a></p>
     <p id="login-signup-link">Forgot password? Don't worry <a href="<?= ROOT ?>//forgotpassword">Click here</a></p>

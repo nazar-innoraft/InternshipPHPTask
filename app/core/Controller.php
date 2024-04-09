@@ -5,14 +5,14 @@ class Controller {
    * This function require view page.
    *
    * @param  mixed $name
-   *  View page name.
+   *   View page name.
    * @param  mixed $data
-   *  Data array which will be shown in view page.
+   *   Data array which will be shown in view page.
    *
    * @return void
    */
   public function view (string $name, mixed $data = []):void {
-    // extract($data);w
+    // extract($data);
     $filename = "../app/views/" .ucfirst($name) . ".view.php";
     if (file_exists($filename)) {
       require $filename;
@@ -25,10 +25,10 @@ class Controller {
    * This function returns input value of form after checking method.
    *
    * @param  mixed $input_val
-   *  Input name.
+   *   Input name.
    *
    * @return string
-   *  Returns input value.
+   *   Returns input value.
    */
   public function input(string $input_val):string {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'post') {
@@ -43,10 +43,10 @@ class Controller {
    * This function requires model and returns an object.
    *
    * @param  string $name
-   *  Model name.
+   *   Model name.
    *
    * @return object
-   *  Returns an object.
+   *   Returns an object.
    */
   public function model(string $name):mixed {
     $model_name = "../app/models/" . ucfirst($name) . ".model.php";

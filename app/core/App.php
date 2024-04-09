@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * This class takes care of routing.
+ */
 class App {
   private $controller = 'Home';
   private $method = 'index';
@@ -9,7 +12,7 @@ class App {
    * This function splits url.
    *
    * @return array
-   *  Returns array of strings.
+   *   Returns array of strings.
    */
   private function splitUrl ():array {
     if (isset($_GET['url'])) {
@@ -26,7 +29,7 @@ class App {
    *
    * @return void
    */
-  public function loadController () {
+  public function loadController ():void {
     $url = $this->splitUrl();
     $cnt = 0;
     $url_val = '';
