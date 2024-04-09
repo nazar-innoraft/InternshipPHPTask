@@ -1,0 +1,5 @@
+src/
+uploads/
+vendor/
+app/core/config.php
+app/core/.env
