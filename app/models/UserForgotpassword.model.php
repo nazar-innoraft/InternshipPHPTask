@@ -36,8 +36,9 @@ class UserForgotpassword extends Database {
    */
   public function updateOtp(string $email):void {
     if ($this->isUserPresent($email)) {
+      $ob = new Mailer;
       $otp = genarate_otp();
-      send_email($email, $otp);
+      $ob->sendEmail($email, $otp);
       $this->updateOtpToDatabse($email, $otp);
     }
   }
@@ -71,8 +72,9 @@ class UserForgotpassword extends Database {
    */
   public function updateToken(string $email) {
     if ($this->isUserPresent($email)) {
+      $ob = new Mailer;
       $token = bin2hex(random_bytes(16));
-      if (send_email($email, $token)) {
+      if ($ob->sendEmail($email, $token)) {
         $this->updateTokenToDatabse($email, $token);
         return 'SUCCESS';
       }

@@ -42,10 +42,6 @@ class GoogleLogin extends Controller {
         setSession($email_address);
       }
       header('Location: /home');
-
-      echo '<pre>';
-      echo var_dump($user_data);
-      echo '</pre>';
     } else {
       $this->view('Google', $this->data);
     }

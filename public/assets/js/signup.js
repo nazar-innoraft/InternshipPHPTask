@@ -1,3 +1,11 @@
+/**
+ *This function show preview of selected image.
+ *
+ * @param input
+ *   Input elements.
+ *
+ * @return void
+ */
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -11,8 +19,12 @@ function readURL(input) {
 const pass = document.getElementById("pass");
 const c_pass = document.getElementById("c_pass");
 
+/**
+ * This function check both password and confirm password are same and password is in proper length.
+ *
+ * @return void
+ */
 function check_pass() {
-  console.log(pass.value);
   if (pass.value != c_pass.value) {
     document.getElementById("submit").disabled = true;
     document.getElementById("wrong").innerHTML = "password not matched";

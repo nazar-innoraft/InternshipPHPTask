@@ -1,10 +1,7 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require '../app/core/init.php';
 
+// Creating an object of App class.
 $app = new App();
 $app->loadController();

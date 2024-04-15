@@ -2,7 +2,12 @@ const pass = document.getElementById('password');
 const eye = document.getElementsByClassName('eye-solid')[0];
 const eye_slash = document.getElementsByClassName('eye-slash')[0];
 
-function toggle () {
+/**
+ * This function show and hide eye buttons.
+ *
+ * @return void
+ */
+function toggle() {
   if (pass.type === "text") {
     pass.setAttribute("type", "password");
     eye.style.display = "none";

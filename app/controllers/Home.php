@@ -11,9 +11,16 @@ class Home extends Controller {
   /**
    * This function shows home page.
    *
+   * @param  mixed $para_meter1
+   *   Url data.
+   * @param  mixed $para_meter2
+   *   Url data.
+   * @param  mixed $para_meter3
+   *   Url data.
+   *
    * @return void
    */
-  public function index ():void {
+  public function index ($para_meter1 = '', $para_meter2 = '', $para_meter3 = ''):void {
     if(is_loggedin()){
       $this->model = $this->model('UserHome');
       if (isset($_POST['submit_post'])) {

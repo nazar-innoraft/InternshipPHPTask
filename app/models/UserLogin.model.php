@@ -15,7 +15,7 @@ class UserLogin extends Database {
    * @return string
    *   Return result string.
    */
-  public function check_credential(string $email, string $pass):string {
+  public function checkCredential(string $email, string $pass):string {
     $sql = "SELECT * from credential WHERE email = ? LIMIT 1";
     $this->query($sql, [$email]);
     $res = $this->fetch();

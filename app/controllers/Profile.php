@@ -10,21 +10,25 @@ class Profile extends Controller {
   /**
    * This function show profile.
    *
-   * @param  mixed $data
-   *   User's email
+   * @param  mixed $para_meter1
+   *   Url data.
+   * @param  mixed $para_meter2
+   *   Url data.
+   * @param  mixed $para_meter3
+   *   Url data.
    *
    * @return void
    */
-  public function index($data = []): void {
+  public function index($para_meter1 = '', $para_meter2 = '', $para_meter3 = ''): void {
     if (is_loggedin()) {
       $this->model = $this->model('UserProfile');
       if (isset($_POST['update'])) {
         $this->updateProfile();
       }
-      if (empty($data)) {
+      if ($para_meter1 == '') {
         $this->view('Error');
       } else {
-        $res = $this->model->isProfileExist($data);
+        $res = $this->model->isProfileExist(trim($para_meter1));
         if ($res == false) {
           $this->view('Error');
         } else {

@@ -23,7 +23,7 @@
       <a href="/GoogleLogin">Login with google</a>
     </form>
     <p id="login-signup-link">Don't have an account <a href="<?= ROOT ?>/signup">SignUp</a></p>
-    <p id="login-signup-link">Forgot password? Don't worry <a href="<?= ROOT ?>//forgotpassword">Click here</a></p>
+    <p id="login-signup-link">Forgot password? Don't worry <a href="<?= ROOT ?>/forgotpassword">Click here</a></p>
     <p class="error-message"><?= $data['error_msg'] ?></p>
     <p class="success-message"><?= $data['success_msg'] ?></p>
   </div>

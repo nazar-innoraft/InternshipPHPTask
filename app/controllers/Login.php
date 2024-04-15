@@ -9,9 +9,16 @@ class Login extends Controller {
   /**
    * This function index checks if user login or not and redirect to home or login.
    *
+   * @param  mixed $para_meter1
+   *   Url data.
+   * @param  mixed $para_meter2
+   *   Url data.
+   * @param  mixed $para_meter3
+   *   Url data.
+   *
    * @return void
    */
-  public function index():void {
+  public function index($para_meter1 = '', $para_meter2 = '', $para_meter3 = ''):void {
     if(is_loggedin()){
       header('Location: /home');
     } else {
@@ -34,7 +41,7 @@ class Login extends Controller {
    */
   public function checkCred(string $email, string $pass): bool {
     $model = $this->model('UserLogin');
-    $res = $model->check_credential($email, $pass);
+    $res = $model->checkCredential($email, $pass);
     if($res == 'SUCCESS') {
       setSession($email);
       $this->data['success_msg'] = 'Logging in';

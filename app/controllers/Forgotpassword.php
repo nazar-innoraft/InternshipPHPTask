@@ -10,16 +10,16 @@ class Forgotpassword extends Controller {
   /**
    * This function show forgot password page.
    *
-   * @param  mixed $a
+   * @param  mixed $para_meter1
    *   Url data.
-   * @param  mixed $b
+   * @param  mixed $para_meter2
    *   Url data.
-   * @param  mixed $c
+   * @param  mixed $para_meter3
    *   Url data.
    *
    * @return void
    */
-  public function index($a = '', $b = '', $c = ''): void {
+  public function index($para_meter1 = '', $para_meter2 = '', $para_meter3 = ''): void {
     $this->data['show_option'] = 'true';
     $this->view('Forgotpassword', $this->data);
   }
