@@ -1,0 +1,42 @@
+{% extends "./base.html.twig" %}
+
+{% block title %}
+
+	{{ blog.title }}
+
+{% endblock %}
+
+{% block body %}
+	<div class="sm:w-3/5 w-4/5 mx-auto">
+		<h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
+			{{ blog.title }}
+		</h1>
+
+		<div class="py-10 text-center">
+			<div class="inline-block sm:pt-1">
+				<h2 class="font-bold my-4">
+					Created by :
+					{{ blog.userEmail }}
+				</h2>
+				<span>{{blog.getTimeFormatted()}}
+				</span>
+			</div>
+		</div>
+		{% if (blog.imagePath) != null %}
+			<img src="{{ blog.imagePath }}" class="mx-auto rounded-xl w-4/5 shadow-xl" alt="Icon"/>
+		{% endif %}
+
+		<p class="text-xl py-6">
+			{{ blog.description }}
+		</p>
+
+		<a href="{{ path('edit',{id: blog.id}) }}" class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+			Edit blog
+		</a>
+
+		<a href="{{ path('delete',{id: blog.id}) }}" class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
+
+			Delete blog
+		</a>
+	</div>
+{% endblock %}
