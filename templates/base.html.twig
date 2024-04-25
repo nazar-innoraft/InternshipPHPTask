@@ -34,7 +34,7 @@
 							<a href="{{ path('create') }}" class="nav-link">Create</a>
 						</li>
 						<li class="nav-item">
-							<a href="{{ path('create') }}" class="nav-link">Create</a>
+							<span class="nav-link .btn-success">{{app.user.email ?? ''}}</span>
 						</li>
 						<li class="nav-item">
 <a href="{{ app.user ? path('app_logout') : path('app_login') }}" class="nav-link">{{ app.user ? 'Logout' : 'Login' }}</a>
