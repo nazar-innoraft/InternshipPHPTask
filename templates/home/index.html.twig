@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home | Mobiles
+{% endblock %}
+
+{% block body %}
+	{% for mobile in mobiles %}
+		<div id="con">
+			<table id="table">
+				<tr>
+					<th>
+						Name
+					</th>
+					<th>
+						Brand
+					</th>
+					<th>
+						Price
+					</th>
+					<th>
+						Front camera
+					</th>
+					<th>
+						Back camera
+					</th>
+					<th>
+						Battery
+					</th>
+					<th>
+						Ram Size
+					</th>
+					<th>
+						Storage Size
+					</th>
+				</tr>
+				<tr>
+					<td>{{ mobile.name }}</td>
+
+					<td>{{ mobile.brand }}</td>
+
+					<td>{{ mobile.price }}</td>
+					<td>{{ mobile.frontCamera }}</td>
+					<td>{{ mobile.backCamera }}</td>
+					<td>{{ mobile.battery }}</td>
+					<td>{{ mobile.ram }}</td>
+					<td>{{ mobile.storage }}</td>
+				</tr>
+			</table>
+		</div>
+	{% endfor %}
+{% endblock %}
